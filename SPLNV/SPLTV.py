@@ -1,12 +1,12 @@
 import functions as f
 
-# *********************************************************************
+# ***************************************************************************************
 # Title: SPLNV (N Variables Linear Equation System) Calculator
 # Author: Jonathan Fedrico Simorangkir
 # Date: 2020
 # Code Version: 1.0
-# Availability: https://github.com/jonathanfsimorangkir/Python-Projects
-# *********************************************************************
+# Availability: https://github.com/jonathanfsimorangkir/Python-Projects/tree/master/SPLNV
+# ***************************************************************************************
 
 # DESCRIPTIONS:
 # 1. This program able to determine the value of N variables from N equations using Crammer Method
