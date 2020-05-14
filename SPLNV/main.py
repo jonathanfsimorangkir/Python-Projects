@@ -69,7 +69,7 @@ while (exit_program == False):
             determinan = f.detCounter(arr_eq_x[i])
             det_var_arr[i] = determinan
 
-        # finding the value of each variable
+        # finding and displaying the value of each variable
         print()
         print("Result:")
         if det_main_arr == 0:
