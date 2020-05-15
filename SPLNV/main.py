@@ -31,6 +31,7 @@ exit_program = False
 while not exit_program:
     # getting input of number of equation from users
     N = int(input("N: "))
+    print()
     if N > 0:
         # creating array of equations
         arr_eq = [[0 for j in range(N + 1)] for i in range(N)]
