@@ -30,7 +30,7 @@ exit_program = False
 while (exit_program == False):
     # getting input of number of equation from users
     N = int(input("N: "))
-    if (N > 0):
+    if N > 0:
         # creating array of array of number
         arr_eq = [[0 for j in range(N + 1)] for i in range(N)]
 
@@ -38,19 +38,19 @@ while (exit_program == False):
         for i in range(N):
             print("Equation " + str(i + 1) + ": ")
             for j in range(N + 1):
-                if (j < N):
-                    arr_eq[i][j] = int(input("Masukkan konstanta X" + str(i + 1) + str(j + 1) + ": "))
+                if j < N:
+                    arr_eq[i][j] = int(input("Constant of X" + str(i + 1) + str(j + 1) + ": "))
                 else:
-                    arr_eq[i][j] = int(input("Masukkan konstanta C" + str(i + 1) + ": "))
+                    arr_eq[i][j] = int(input("Constant of C" + str(i + 1) + ": "))
             print()
 
-        # creating main matriks
+        # creating the main matrix
         arr_eq_main = [[0 for j in range(N)] for i in range(N)]
         for i in range(N):
             for j in range(N):
                 arr_eq_main[i][j] = arr_eq[i][j]
 
-        # creating matriks of N variable
+        # creating variable matrix
         arr_eq_x = [[[0 for k in range(N)] for j in range(N)] for i in range(N)]
         for i in range(N):
             for j in range(N):
@@ -61,14 +61,16 @@ while (exit_program == False):
                         arr_eq_x[i][j][k] = arr_eq[j][k]
 
         # finding the determinant of main matrix
-        det_main_arr = f.detCounter(arr_eq_main)
+        det_main_arr = int(round(f.detCounter(arr_eq_main)))
 
-        # finding the determinant of each variable in matrix
+        # finding the determinant of each variable in variable matrix
         det_var_arr = [0 for i in range(N)]
         for i in range(N):
             determinan = f.detCounter(arr_eq_x[i])
-            det_var_arr[i] = determinan
+            det_var_arr[i] = int(round((determinan)))
 
+        print(det_var_arr)
+        print(det_main_arr)
         # finding and displaying the value of each variable
         print()
         print("Result:")
@@ -76,23 +78,29 @@ while (exit_program == False):
             print("Error! Variables value not found.")
         else:
             for i in range(N):
-                result = det_var_arr[i] / det_main_arr
-                decimal_check = abs(round(result) - result)
-                if decimal_check <= 0.001:
-                    print("Value of X" + str(i + 1) + " = " + str(round(result)))
+                arr_result = f.fracSimp(abs(det_var_arr[i]), abs(det_main_arr))
+                if (det_var_arr[i] < 0) and (det_main_arr < 0):
+                    if arr_result[1] == 1:
+                        print("Variable X"+str(i+1)+" = "+str(arr_result[0]))
+                    else:
+                        print("Variable X" + str(i + 1) + " = " + str(arr_result[0]) + "/" + str(arr_result[1]))
+                elif (det_var_arr[i] > 0) and (det_main_arr > 0):
+                    if arr_result[1] == 1:
+                        print("Variable X"+str(i+1)+" = "+str(arr_result[0]))
+                    else:
+                        print("Variable X" + str(i + 1) + " = " + str(arr_result[0]) + "/" + str(arr_result[1]))
                 else:
-                    print(
-                        "Value of X" + str(i + 1) + " = " + str(det_var_arr[i]) + "/" + str(det_main_arr) + " = " + str(
-                            format(result, '.3f')))
-
+                    if arr_result[1] == 1:
+                        print("Variable X" + str(i + 1) + " = -" + str(arr_result[0]))
+                    else:
+                        print("Variable X" + str(i + 1) + " = -" + str(arr_result[0]) + "/" + str(arr_result[1]))
     else:
         print("Error! Can't assign value of N <= 0")
-
     print()
-    closing_question = input("Exit program? (Y/N): ")
+    closing_question = input("Try again? (Y/N): ")
     if (closing_question == 'Y') or (closing_question == 'y'):
+        print()
+    else:
         print()
         print("Thank you for using this program!")
         exit_program = True
-    else:
-        print()
