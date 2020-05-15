@@ -22,12 +22,13 @@ import functions as f
 # GLOBAL THESAURUS:
 # exit_program: boolean
 # N, i, j, k, det_main_arr: integer
+# arr_result: one dimensional array of integer [0..1]
 # arr_eq, arr_eq_main, det_var_arr: two dimensional array of integer [0..N]
 # arr_eq_x: three dimensional array of integer [0..N]
 
 # ALGORITHM
 exit_program = False
-while (exit_program == False):
+while not exit_program:
     # getting input of number of equation from users
     N = int(input("N: "))
     if N > 0:
@@ -67,10 +68,7 @@ while (exit_program == False):
         det_var_arr = [0 for i in range(N)]
         for i in range(N):
             determinan = f.detCounter(arr_eq_x[i])
-            det_var_arr[i] = int(round((determinan)))
-
-        print(det_var_arr)
-        print(det_main_arr)
+            det_var_arr[i] = int(round(determinan))
         # finding and displaying the value of each variable
         print()
         print("Result:")
@@ -81,12 +79,12 @@ while (exit_program == False):
                 arr_result = f.fracSimp(abs(det_var_arr[i]), abs(det_main_arr))
                 if (det_var_arr[i] < 0) and (det_main_arr < 0):
                     if arr_result[1] == 1:
-                        print("Variable X"+str(i+1)+" = "+str(arr_result[0]))
+                        print("Variable X" + str(i + 1) + " = " + str(arr_result[0]))
                     else:
                         print("Variable X" + str(i + 1) + " = " + str(arr_result[0]) + "/" + str(arr_result[1]))
                 elif (det_var_arr[i] > 0) and (det_main_arr > 0):
                     if arr_result[1] == 1:
-                        print("Variable X"+str(i+1)+" = "+str(arr_result[0]))
+                        print("Variable X" + str(i + 1) + " = " + str(arr_result[0]))
                     else:
                         print("Variable X" + str(i + 1) + " = " + str(arr_result[0]) + "/" + str(arr_result[1]))
                 else:
