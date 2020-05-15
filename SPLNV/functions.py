@@ -8,9 +8,9 @@ import numpy as np
 # Title: Array Determinant Counter          detCounter(array)
 # DEFENITION & SPECIFICATION:
 # detCounter : two dimensional array of integer -> integer
-#       - menghitung nilai determinan dari array berdimensi 2
-#       - menghasilkan output bertipe bilangan bulat
-#       - asumsi seluruh elemen pada array bertipe bilangan bulat
+#       - Calculates the determinant value of array dimension 2
+#       - Produces integer type output
+#       - Assuming all elements in an array are of integer type
 
 # REALIZATION
 def detCounter(array):
@@ -26,11 +26,11 @@ def detCounter(array):
 # TITLE: Fractional Simplifier          fracSimp(numerator,denominator)
 # DEFENITION & SPESIFICATION:
 # fracSimp(numerator,denominator) : integer,integer -> array of integer
-#       - menerima input berupa dua bilangan integer positif
-#       - mengubah pembilang dan penyebut menjadi bentuk yang paling sederhana
-#       - memberikan keluaran berupa array of integer yang berisikan 2 elemen:
-#           - Elemen 1 (index = 0) merupakan pembilang yang telah disederhanakan
-#           - Elemen 2 (index = 1) merupakan penyebut yang telah disederhanakan
+#       - Accept two positive integer as input
+#       - Change the numerator and denominator into the simplest form
+#       - Outputs an array of integers containing 2 elements:
+#           - Element 1 (index = 0) is a simplified numerator
+#           - Element 2 (index = 1) is a simplified denominator
 
 # REALIZATION
 def fracSimp(numerator, denominator):
@@ -74,4 +74,4 @@ def hitung_FPB(x, y):
     return fpb
 
 # APPLICATION
-# print(hitung_FPB(100, 25))
+# hitung_FPB(100, 25)
